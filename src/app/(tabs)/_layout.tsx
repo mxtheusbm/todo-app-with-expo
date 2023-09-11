@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable, useColorScheme, View } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
@@ -40,7 +40,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: currentMonthName,
-          tabBarIcon: ({ color,  }) => <TabBarIcon name="calendar-check" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar-check" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -57,13 +57,33 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'New Task',
+          tabBarIcon: ({size, color}) => (
+            <View style={{
+              position:"absolute", 
+              bottom: 8, 
+              right: 16, 
+              backgroundColor: '#FAFAFA',
+              padding: 16,
+              borderRadius: 100
+              }}
+            >
+              <View
+                style={{ 
+                  backgroundColor: '#7A08FA',
+                  padding: 22,
+                  borderRadius: 50 
+                }}
+              >
+              <MaterialCommunityIcons name='plus' size={48} color='#ffffff'/>
+            </View>
+            </View>
+          ),
         }}
-      /> */}
+      />
     </Tabs>
   );
 }

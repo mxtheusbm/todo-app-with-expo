@@ -14,7 +14,7 @@ const DaysOfMonthList = () => {
 
   useEffect(() => {
     if (scrollViewRef.current) {
-      const scrollToX = (currentDay - 1) * 40; // Adjust the width and margin values
+      const scrollToX = (currentDay - 1) * 45; // Adjust the width and margin values
       scrollViewRef.current.scrollTo({ x: scrollToX, animated: true });
     }
   }, [currentDay]);
