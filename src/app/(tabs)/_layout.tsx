@@ -41,46 +41,61 @@ export default function TabLayout() {
         options={{
           title: currentMonthName,
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar-check" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <MaterialCommunityIcons
-                    name="bell-outline"
-                    size={30}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          // headerRight: () => (
+          //   <Link href="/modal" asChild>
+          //     <Pressable>
+          //       {({ pressed }) => (
+          //         <MaterialCommunityIcons
+          //           name="bell-outline"
+          //           size={30}
+          //           color={Colors[colorScheme ?? 'light'].text}
+          //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+          //         />
+          //       )}
+          //     </Pressable>
+          //   </Link>
+          // ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="newTask"
         options={{
-          title: 'New Task',
+          headerTitleStyle: { display: 'none' },
+          tabBarStyle: { display: "none" },
           tabBarIcon: ({size, color}) => (
             <View style={{
-              position:"absolute", 
+              position:"absolute",
               bottom: 8, 
               right: 16, 
               backgroundColor: '#FAFAFA',
-              padding: 16,
+              padding: 12,
               borderRadius: 100
               }}
             >
               <View
                 style={{ 
                   backgroundColor: '#7A08FA',
-                  padding: 22,
+                  padding: 16,
                   borderRadius: 50 
                 }}
               >
               <MaterialCommunityIcons name='plus' size={48} color='#ffffff'/>
+              </View>
             </View>
-            </View>
+          ),
+          headerLeft: () => (
+            <Link href="/" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <MaterialCommunityIcons
+                    name="close"
+                    size={40}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginLeft: 8, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
           ),
         }}
       />
